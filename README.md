@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+Closure gives access to an outer functions scope that is from an inner function
 2. Study the following code, then answer the questions below.
 
 ```js
