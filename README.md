@@ -43,6 +43,8 @@ Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
 
+closure is a function bundled together with references to its surrounding state 
+
 Closure gives access to an outer functions scope that is from an inner function
 2. Study the following code, then answer the questions below.
 
@@ -65,8 +67,13 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+in the return function() name is taken from the outer function
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The name is always the same and the number can change
+
 c. What is the lexical scope of `newRoll`? 
+newroll is only block level because const is block level, or the level of the function; function level because the block is a function
 
 ### Task 2c - Exit Ticket
 

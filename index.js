@@ -179,3 +179,45 @@ function getInningScore(){
 }
 console.log(scoreboard(getInningScore,inning,9));
 
+/*
+function scoreboard(getScores, scores, numOfInnings) {
+  let suffix = "";
+  let s = {
+    Home:  0,
+    Away: 0,
+  };
+    let homeArray = []
+    let awayArray = []
+  for (i = 1; i <= numOfInnings; i ++){
+    getScores(scores);
+    s.Home = s.Home + inning();
+    s.Away = s.Away + inning();
+    homeArray.push( s.Home )
+    awayArray.push( s.Away )
+    if (i === 1){
+      suffix = "st";
+    }
+    else if (i === 2) {
+      suffix = "nd";
+    }
+    else if (i === 3) {
+      suffix = "rd";
+    } else {
+      suffix = "th";
+    }
+    console.log(`${i}${suffix} inning: ${s.Home} - ${s.Away} `);
+  }
+  const reducer = ( total, num ) => total + num
+  s.Home = homeArray.reduce( reducer )
+  s.Away = awayArray.reduce( reducer ) 
+  return `Final Score: ${s.Home} - ${s.Away} `;
+}
+function getInningScore(){
+ let s = {
+  Home:  0,
+  Away: 0,
+};
+  return s.Home,s.Away;
+}
+console.log(scoreboard(getInningScore,inning,9))
+*/
