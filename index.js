@@ -67,7 +67,8 @@ function counter2() {
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(){
-      return Math.floor(Math.random() * Math.floor(3));
+      p = Math.floor(Math.random() * Math.floor(3));
+      return p;
 }
 
 /* Task 3: finalScore()
@@ -84,7 +85,7 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(inning , n) {
+function finalScore(inn , n) {
   let s = {
     Home:  0,
     Away: 0,
@@ -118,16 +119,16 @@ and returns the score at each pont in the game, like so:
 8th inning: 5 - 8
 9th inning: 6 - 10
 
-Final Score: 6 - 10 */
+Final Score: 6 - 10 
+
 function getInningScore(inning, n){
-  if(inning) inning();
-  if (n === 1){
-    return console.log(`1st inning: ` + inning ` - ` + inning);
+  if (n == 1){
+    return console.log(`1st inning: ` + inning() ` - ` + inning());
   }
-  else if (n === 3) {
-    return console.log(`3rd inning: ` + inning ` - ` + inning);
+  else if (n == 3) {
+    return console.log(`3rd inning: ` + inning() ` - ` + inning());
   } else {
-    return console.log(n+ `th inning: ` + inning ` - ` + inning);
+    return console.log(n+ `th inning: ` + inning() ` - ` + inning());
   }
 }
 
@@ -137,5 +138,44 @@ function scoreboard(inning, getInningScore, n) {
   }
   return console.log(`\nFinal Score: ` + inning() ` - ` + inning() );
 }
+*/
 
+function scoreboard(getScores, scores, numOfInnings) {
+  let suffix = "";
+  let s = {
+    Home:  0,
+    Away: 0,
+  };
+  let arr1 = [];
+  let arr2 = [];
+  for (i = 1; i <= numOfInnings; i ++){
+    getScores(scores);
+    s.Home = s.Home + inning();
+    s.Away = s.Away + inning();
+    arr1.push(s.Home);
+    arr2.push(s.Away);
+    if (i === 1){
+      suffix = "st";
+    }
+    else if (i === 2) {
+      suffix = "nd";
+    }
+    else if (i === 3) {
+      suffix = "rd";
+    } else {
+      suffix = "th";
+    }
+    console.log(`${i}${suffix} inning: ${s.Home} - ${s.Away} `);
+  }
+    
+  return `Final Score: ${s.Home} - ${s.Away} `;
+}
+function getInningScore(){
+ let s = {
+  Home:  0,
+  Away: 0,
+};
+  return s.Home,s.Away;
+}
+console.log(scoreboard(getInningScore,inning,9));
 
