@@ -40,9 +40,11 @@ function processFirstItem(stringList, callback) {
  * counter2 uses closure because the count variable is used outside of the function; the function
  * increments count which is outside of the scope of the function which means that it uses closure
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- * counter1 would be preferable where having counter1 be a constant would be advantagous
- * counter2 would be preferable if you don't need the counter to be assigned to a constant and called upon later in the code
-*/
+  count is global on counter2, so it doesn't ever go away
+  in counter1 the count is protected, so counter2 could be changed by other functions
+  but count in counter1 cannot be changed
+ */
+
 
 // counter1 code
 function counterMaker() {
@@ -146,14 +148,9 @@ function scoreboard(getScores, scores, numOfInnings) {
     Home:  0,
     Away: 0,
   };
-  let arr1 = [];
-  let arr2 = [];
   for (i = 1; i <= numOfInnings; i ++){
-    getScores(scores);
     s.Home = s.Home + inning();
     s.Away = s.Away + inning();
-    arr1.push(s.Home);
-    arr2.push(s.Away);
     if (i === 1){
       suffix = "st";
     }
@@ -220,4 +217,25 @@ function getInningScore(){
   return s.Home,s.Away;
 }
 console.log(scoreboard(getInningScore,inning,9))
+
+function getInningScore(inningCB){
+  let s = {
+    home: 0,
+    away: 0,
+  };
+  return function ()
+  {
+    home += inningCB();
+    away += inningCB();
+    return (s.home, s.away)
+  }
+}
+
+function scoreboard (getInningScoreCB, inningCB, innings){
+  const scoreByInning=[];
+  const temp = getInningScoreCB(inningCB);
+  for (let i = 1; i <= innings; i++){
+    scoresByInning.push(temp());
+  }
+}
 */
