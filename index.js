@@ -93,10 +93,10 @@ function finalScore(inn , n) {
     Away: 0,
   };
   for (i = 0; i < n; i++){
-    s.Home = s.Home + inning();
+    s.Home = s.Home + inn();
   }
   for (i = 0; i < n; i++){
-    s.Away = s.Away + inning();
+    s.Away = s.Away + inn();
   }
   return s;
 }
